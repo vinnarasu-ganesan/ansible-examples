@@ -9,7 +9,7 @@
     - common
 
 - name: configure and deploy the webservers and application code
-  hosts: hosts
+  hosts: all
   remote_user: root
 
   roles:
