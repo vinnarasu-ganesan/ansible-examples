@@ -1,0 +1,18 @@
+# (C) Copyright 2020 Hewlett Packard Enterprise Development LP
+- name: web | clone the repo
+  git:
+    repo: "{{ input_vars.app_url }}"
+    dest: /tmp/eShopOnContainers
+    force: yes
+  become: no
+
+- name: web | copy the env file
+  template:
+    src: roles/web/templates/env.j2
+    dest: /tmp/eShopOnContainers/src/.env
+
+- name: web | Install API component
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-web.yml -f docker-compose-web.override.yml build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy
+
+- name: web | Bring up API server
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-web.yml -f docker-compose-web.override.yml up -d 

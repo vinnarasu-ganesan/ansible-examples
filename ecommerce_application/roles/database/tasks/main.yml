@@ -1,0 +1,13 @@
+# (C) Copyright 2020 Hewlett Packard Enterprise Development LP
+- name: database | clone the repo
+  git:
+    repo: "{{ input_vars.app_url }}"
+    dest: /tmp/eShopOnContainers
+    force: yes
+  become: no
+
+- name: database | Install database
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-db.yml -f docker-compose-db.override.yml build
+
+- name: database | Bring up database
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-db.yml -f docker-compose-db.override.yml up -d 

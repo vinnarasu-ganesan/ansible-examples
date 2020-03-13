@@ -1,0 +1,4 @@
+# (C) Copyright 2020 Hewlett Packard Enterprise Development LP
+database ansible_ssh_host=172.26.4.38 ansible_ssh_port=22 ansible_ssh_user='thavamaniraja'
+api ansible_ssh_host=172.26.4.39 ansible_ssh_port=22 ansible_ssh_user='thavamaniraja'
+web ansible_ssh_host=172.26.4.40 ansible_ssh_port=22 ansible_ssh_user='thavamaniraja'

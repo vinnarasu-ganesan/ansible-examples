@@ -1,0 +1,25 @@
+#(C) Copyright 2020 Hewlett Packard Enterprise Development LP
+---
+- name: Install DB Component 
+  hosts: database
+  user: "{{ ansible_ssh_user }}"
+  become: yes
+  roles:
+   - docker
+   - database
+
+- name: Install API component
+  hosts: api
+  user: "{{ ansible_ssh_user }}"
+  become: yes
+  roles:
+    - docker
+    - api
+
+- name: Install Web Component
+  hosts: web
+  user: "{{ ansible_ssh_user }}"
+  become: yes
+  roles:
+    - docker
+    - web
