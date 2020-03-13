@@ -28,10 +28,10 @@
   service: name=firewalld state=started enabled=yes
 
 - name: insert firewalld rule
-  firewalld: port=3306/tcp permanent=true state=enabled immediate=yes
+  firewalld: port={{ mysql_port }}/tcp permanent=true state=enabled immediate=yes
 
 - name: Create Application Database
-  mysql_db: name=foodb state=present
+  mysql_db: name={{ dbname }} state=present
 
 - name: Create Application DB User
-  mysql_user: name=foouser password=abc priv=*.*:ALL host='%' state=present
+  mysql_user: name={{ dbuser }} password={{ upassword }} priv=*.*:ALL host='%' state=present
