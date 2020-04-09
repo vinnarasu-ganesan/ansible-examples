@@ -1,3 +1,4 @@
 # (C) Copyright 2020 Hewlett Packard Enterprise Development LP
 input_vars:
-   app_url: https://github.com/siva-subramaniam-m/eShopOnContainers
+   app_url: https://github.com/Thavamanirajasakthivel/eShopOnContainers
+   
