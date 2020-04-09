@@ -5,7 +5,12 @@
     dest: /tmp/eShopOnContainers
     force: yes
   become: no
-
+  
+- name: database | copy the env file
+  template:
+    src: roles/database/templates/env.j2
+    dest: /tmp/eShopOnContainers/src/.env
+    
 - name: database | Install database
   command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-db.yml -f docker-compose-db.override.yml build
 
