@@ -16,8 +16,6 @@
   apt:
     update_cache: yes
     
-- debug: var=result.stdout_lines
-
 - name: Install docker dependencies
   apt:
     name: "{{ item }}"
