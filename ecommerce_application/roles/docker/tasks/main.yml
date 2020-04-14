@@ -8,11 +8,11 @@
   command: uname -r
   register: kernel_version
   
-- name: Pause for 180 seconds for the VM to be completely up.
-  pause:
-    seconds: 180
-
 - name: Update apt packages
+  retries: 6
+  delay: 30
+  register: result
+  until: result is not failed
   apt:
     update_cache: yes
     
