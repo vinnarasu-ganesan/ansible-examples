@@ -21,7 +21,7 @@
     name: "{{ item }}"
     update_cache: yes
   with_items:
-    - linux-image-extra-{{ kernel_version.stdout }}
+    #- linux-image-extra-{{ kernel_version.stdout }}
     - linux-image-extra-virtual
     - apt-transport-https
     - ca-certificates
