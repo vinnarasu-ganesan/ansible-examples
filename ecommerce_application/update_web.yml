@@ -1,0 +1,7 @@
+#(C) Copyright 2020 Hewlett Packard Enterprise Development LP
+---
+- name: Install Web Component
+  hosts: web
+  remote_user: root
+  roles:
+    - web
