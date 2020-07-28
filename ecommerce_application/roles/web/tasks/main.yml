@@ -9,6 +9,9 @@
   template:
     src: roles/web/templates/env.j2
     dest: /tmp/eShopOnContainers/src/.env
+    
+- name: web | Install Web component
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-web.yml -f docker-compose-web.override.yml build
 
 - name: web | Bring up Web server
   command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-web.yml -f docker-compose-web.override.yml up -d 
