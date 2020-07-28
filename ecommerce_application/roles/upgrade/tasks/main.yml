@@ -7,7 +7,7 @@
 
 - name: web | copy the env file
   template:
-    src: roles/web/templates/env.j2
+    src: roles/upgrade/templates/env.j2
     dest: /tmp/eShopOnContainers/src/.env
     
 - name: web | Install Web component
