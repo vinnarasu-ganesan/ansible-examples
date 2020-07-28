@@ -1,9 +1,10 @@
 # (C) Copyright 2020 Hewlett Packard Enterprise Development LP
-- name: web | copy the eShopcontainer repo to web server
-  copy:
-    src: ../../eShopOnContainers
-    dest: /tmp/
+- name: web | clone the repo
+  git:
+    repo: “{{ input_vars.app_url }}”
+    dest: /tmp/eShopOnContainers
     force: yes
+  become: no
 
 - name: web | copy the env file
   template:
