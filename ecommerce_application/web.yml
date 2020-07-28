@@ -2,7 +2,9 @@
 #(C) Copyright 2020 Hewlett Packard Enterprise Development LP
 ---
 - name: Install Web Component
-  hosts: web
+  hosts: all
   remote_user: root
   roles:
+    - docker
     - web
+
