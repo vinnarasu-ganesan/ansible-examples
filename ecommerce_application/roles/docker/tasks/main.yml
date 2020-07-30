@@ -9,8 +9,8 @@
   register: kernel_version
   
 - name: Update apt packages
-  retries: 6
-  delay: 30
+  retries: 10
+  delay: 60
   register: result
   until: result is not failed
   apt:
