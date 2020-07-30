@@ -1,10 +1,10 @@
 # (C) Copyright 2020 Hewlett Packard Enterprise Development LP
-#- name: web | clone the repo
-#  git:
-#    repo: 'https://github.com/Thavamanirajasakthivel/eShopOnContainers'
-#    dest: /tmp/eShopOnContainers
-#    force: yes
-#  become: no
+- name: web | clone the repo
+  git:
+    repo: 'https://github.com/Thavamanirajasakthivel/eShopOnContainers'
+    dest: /tmp/eShopOnContainers
+    force: yes
+  become: no
 
 - name: web | copy the env file
   template:
