@@ -99,6 +99,12 @@
     src: roles/docker/templates/30-dns.conf.j2
     dest: /etc/systemd/system/docker.service.d/30-dns.conf
 
+- name: Copy the proxy conf
+  become: yes
+  template:
+    src: roles/docker/templates/20-proxy.conf.j2
+    dest: /etc/systemd/system/docker.service.d/20-proxy.conf
+
 - name: Reload systemctl
   become: yes
   command: systemctl daemon-reload
