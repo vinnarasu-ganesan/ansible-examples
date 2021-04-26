@@ -1,2 +1,2 @@
-- src: https://github.com/herve-bancilhon/ansible-role-docker.git
+- src: https://github.com/geerlingguy/ansible-role-docker.git
   name: docker-galaxy
