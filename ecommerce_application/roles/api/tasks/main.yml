@@ -12,7 +12,7 @@
     dest: /tmp/eShopOnContainers/src/.env
 
 - name: api | Install API component
-  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml build
+  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy
 
 - name: api | Bring up API server
   command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml up -d
