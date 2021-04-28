@@ -1,18 +1,18 @@
 # (C) Copyright 2020 Hewlett Packard Enterprise Development LP
-- name: api | clone the repo
-  git:
-    repo: "{{ input_vars.app_url }}"
-    dest: /tmp/eShopOnContainers
-    force: yes
-  become: no
+#- name: api | clone the repo
+#  git:
+#    repo: "{{ input_vars.app_url }}"
+#    dest: /tmp/eShopOnContainers
+#    force: yes
+#  become: no
 
-- name: api | copy the env file
-  template:
-    src: roles/api/templates/env.j2
-    dest: /tmp/eShopOnContainers/src/.env
+#- name: api | copy the env file
+#  template:
+#    src: roles/api/templates/env.j2
+#    dest: /tmp/eShopOnContainers/src/.env
 
-- name: api | Install API component
-  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy
+#- name: api | Install API component
+#  command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy
 
 - name: api | Bring up API server
   command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml up -d
