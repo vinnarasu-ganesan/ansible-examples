@@ -12,12 +12,14 @@
     dest: /tmp/eShopOnContainers/src/.env
     
 - name: pull envoy proxy image
-  docker_image:
-    name: envoyproxy/envoy:v1.11.1
+  command: docker pull envoyproxy/envoy:v1.11.1
+#   docker_image:
+#     name: envoyproxy/envoy:v1.11.1
     
 - name: pull rabbitmq image
-  docker_image:
-    name: rabbitmq:3-management-alpine
+  command: docker pull rabbitmq:3-management-alpine
+#   docker_image:
+#     name: rabbitmq:3-management-alpine
     
 - name: api | Install API component
   command: chdir=/tmp/eShopOnContainers/src/ docker-compose -f docker-compose-api.yml -f docker-compose-api.override.yml build --build-arg http_proxy=$http_proxy --build-arg https_proxy=$http_proxy
