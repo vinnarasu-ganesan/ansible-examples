@@ -36,5 +36,5 @@
   mysql_user:
     name: "{{ morpheus['customOptions']['databaseUserName'] }}"
     password: "{{ morpheus['customOptions']['databasePassword'] }}"
-    priv: '*.*:ALL,GRANT'
+    priv: '*.*:ALL,GRANT host='%''
     state: present
