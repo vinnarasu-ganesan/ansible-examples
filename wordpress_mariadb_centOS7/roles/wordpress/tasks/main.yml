@@ -1,10 +1,32 @@
 ---
 - name: Download WordPress
   get_url: url=http://wordpress.org/wordpress-{{ wp_version }}.tar.gz dest=/tmp/wordpress-{{ wp_version }}.tar.gz sha256sum="{{ wp_sha256sum }}"
+  
+- name: Install EPEL repo.
+  yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+    
+- name: Install Yum utils
+  yum: name={{ item }} state=present
+  with_items:
+   - epel-release
+   - yum-utils
+   
+- name: Enable EPEL repo
+  command: yum-config-manager --enable remi-php73
+  become: yes
 
 - name: Install httpd and php
   yum: name={{ item }} state=present
   with_items:
+   - phpMyAdmin
+   - mod_ssl
+   - php-common
+   - php-gd
+   - php-xml
+   - php-mbstring
+   - php-mcrypt
    - httpd
    - php
    - php-mysql
