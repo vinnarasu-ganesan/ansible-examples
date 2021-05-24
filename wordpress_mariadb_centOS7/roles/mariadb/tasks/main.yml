@@ -34,3 +34,6 @@
 
 - name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
   mysql_user: name={{ morpheus['customOptions']['databaseUserName'] }} password={{ morpheus['customOptions']['databasePassword'] }} priv=*.*:ALL,GRANT host='%' state=present
+  
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user: name={{ morpheus['customOptions']['databaseUserName'] }} password={{ morpheus['customOptions']['databasePassword'] }} priv=*.*:ALL,GRANT host='localhost' state=present
