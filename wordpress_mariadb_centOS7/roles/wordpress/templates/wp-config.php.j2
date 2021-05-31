@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', '{{ lookup('env', 'DB_NAME') }}' );
+define( 'DB_NAME', '{{ ansible_env.DB_NAME }}' );
 
 /** MySQL database username */
-define( 'DB_USER', '{{ lookup('env', 'DB_USER') }}' );
+define( 'DB_USER', '{{ ansible_env.DB_USER }}' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '{{ lookup('env', 'DB_PASSWORD') }}' );
+define( 'DB_PASSWORD', '{{ ansible_env.DB_PASSWORD }}' );
 
 /** MySQL hostname */
-define( 'DB_HOST', '{{ lookup('env', 'MYSQL_IP') }}' );
+define( 'DB_HOST', '{{ ansible_env.MYSQL_IP }}' );
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
