@@ -1,0 +1,11 @@
+---
+# This playbook creates database, DB users with remote login
+
+- name: create database
+  mysql_db: "name={{ morpheus['customOptions']['databaseName'] }} state=present"
+
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user: "name={{ morpheus['customOptions']['databaseUserName'] }} password={{ morpheus['customOptions']['databasePassword'] }} priv=*.*:ALL,GRANT host='%' state=present"
+  
+- name: Create database user with password and all database privileges and 'WITH GRANT OPTION'
+  mysql_user: "name={{ morpheus['customOptions']['databaseUserName'] }} password={{ morpheus['customOptions']['databasePassword'] }} priv=*.*:ALL,GRANT host='localhost' state=present"
