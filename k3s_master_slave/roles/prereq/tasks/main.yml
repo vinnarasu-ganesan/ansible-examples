@@ -1,0 +1,10 @@
+# (c) Copyright 2022 Hewlett Packard Enterprise Development LP
+---
+- name: Install firewalld
+  zypper:
+    name: firewalld
+    state: present
+- name: Disable firewall
+  systemd:
+    name: firewalld
+    enabled: no
