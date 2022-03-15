@@ -1,0 +1,21 @@
+# This playbook will install MariaDB
+
+- name: yum-clean-all
+  command: yum clean all
+  args:
+    warn: yes
+  
+- name: Install MariaDB package
+  yum: name={{ item }} state=installed
+  with_items:
+   - mariadb-server
+   - MySQL-python
+
+- name: Start MariaDB Service
+  service: name=mariadb state=started enabled=yes
+ 
+- name: Start firewalld
+  service: name=firewalld state=started enabled=yes
+
+- name: insert firewalld rule
+  firewalld: port={{ mysql_port }}/tcp permanent=true state=enabled immediate=yes
