@@ -11,7 +11,7 @@
  echo exec('hostname');
  Print  "</BR>";
 echo  "List of Databases: </BR>";
-        $link = mysqli_connect('{{ ansible_env.MARIADB_IP }}', '{{ lookup('cypher','secret=secret/dbuser') }}', '{{ lookup('cypher','secret=secret/upassword') }}') or die(mysqli_connect_error($link));
+        $link = mysqli_connect('{{ ansible_env.MYSQL_IP }}', '{{ lookup('cypher','secret=secret/dbuser') }}', '{{ lookup('cypher','secret=secret/upassword') }}') or die(mysqli_connect_error($link));
         
         $res = mysqli_query($link, "SHOW DATABASES;");
         while ($row = mysqli_fetch_assoc($res)) {
